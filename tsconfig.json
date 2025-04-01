@@ -1,0 +1,48 @@
+{
+  "compilerOptions": {
+    "target": "ES2017",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "removeComments": false, // remove comments when converting to js
+    "preserveConstEnums": true, // preserve const enums when converting to js
+    "noUncheckedIndexedAccess": true, // add undefined to any undeclared field in the type
+    "noImplicitReturns": true, // check all code paths to ensure they return a value
+    "noUnusedParameters": true, // reports errors on unused parameters in functions
+    "allowUnreachableCode": false, // raise compiler errors about unreachable code
+    "noFallthroughCasesInSwitch": true // prevent case fallthrough bug
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.mjs",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "**/*.spec.ts",
+    "**/*.e2e.ts",
+    "out",
+    "dist",
+    "build",
+    "coverage",
+    "node_modules"
+  ]
+}
