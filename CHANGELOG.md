@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/dejongyeong/portfolio-portal/compare/v1.0.0...v1.1.0) (2025-04-02)
+
+
+### Features
+
+* integrate shadcn-ui ([779df52](https://github.com/dejongyeong/portfolio-portal/commit/779df52086ef6b94ff5bc1056e2aa579dc1dbb5e))
+
 # 1.0.0 (2025-04-01)
 
 
