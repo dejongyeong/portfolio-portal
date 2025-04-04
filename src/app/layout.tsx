@@ -2,6 +2,7 @@ import "../styles/globals.css";
 
 import type { Metadata } from "next";
 
+import { Toaster } from "@/components/ui/sonner";
 import { siteConfig } from "@/config/site-config";
 import { geistMono, geistSans } from "@/lib/fonts";
 
@@ -27,6 +28,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
+        <Toaster richColors position="top-right" />
       </body>
     </html>
   );
