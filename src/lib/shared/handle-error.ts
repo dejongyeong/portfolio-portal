@@ -1,7 +1,7 @@
 import axios from "axios";
 import { z } from "zod";
 
-export function displayError(
+export function handleError(
   error: unknown,
   defaultMessage: string = "Network error, please try again later.",
 ) {

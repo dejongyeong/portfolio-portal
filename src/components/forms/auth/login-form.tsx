@@ -20,8 +20,8 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { displayError } from "@/lib/display-error";
-import { LOGIN_URL } from "@/lib/endpoints";
+import { LOGIN_URL } from "@/lib/shared/endpoints";
+import { handleError } from "@/lib/shared/handle-error";
 import { loginSchema, TLoginSchema } from "@/schema/auth/login-schema";
 
 export default function LoginForm() {
@@ -53,7 +53,7 @@ export default function LoginForm() {
         router.push("/");
       } catch (error: unknown) {
         const message = "Invalid email address or password";
-        toast.error(displayError(error, message));
+        toast.error(handleError(error, message));
       }
     });
   }

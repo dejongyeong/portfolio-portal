@@ -1,6 +1,7 @@
 import Link from "next/link";
+import { redirect } from "next/navigation";
 
-import LoginForm from "@/components/form/auth/login-form";
+import LoginForm from "@/components/forms/auth/login-form";
 import {
   Card,
   CardContent,
@@ -10,8 +11,14 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Shell } from "@/components/wrapper/shell";
+import { checkSession } from "@/lib/auth/session";
 
-export default function Login() {
+export default async function Login() {
+  const payload = await checkSession();
+
+  // redirect to home page if user is already logged in
+  if (payload) redirect("/");
+
   return (
     <Shell className="mx-2 max-w-lg">
       <Card>
