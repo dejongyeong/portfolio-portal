@@ -1,11 +1,9 @@
-"use server";
-
 import jwt from "jsonwebtoken";
-import { cookies } from "next/headers";
+
+import { getToken } from "./token";
 
 export const checkSession = async () => {
-  const cookieStore = await cookies();
-  const accessToken = cookieStore.get("access_token")?.value;
+  const accessToken = await getToken();
 
   if (!accessToken) return null;
 
