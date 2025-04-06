@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
 
-import ForgotPasswordForm from "@/components/forms/auth/forgot-password-form";
 import {
   Card,
   CardContent,
@@ -13,7 +12,7 @@ import {
 import { Shell } from "@/components/wrapper/shell";
 import { checkSession } from "@/lib/auth/session";
 
-export default async function ForgotPasswordPage() {
+export default async function ForgotPasswordSentPage() {
   const payload = await checkSession();
 
   // redirect to home page if user is already logged in
@@ -24,14 +23,26 @@ export default async function ForgotPasswordPage() {
       <Card>
         <CardHeader className="space-y-1">
           <CardTitle className="text-2xl font-semibold text-shadow-2xs">
-            Reset your password
+            Password Reset Link Sent!
           </CardTitle>
           <CardDescription>
-            Enter your email address and we will send you a password reset link.
+            Reset link sent, please check your email address.
           </CardDescription>
         </CardHeader>
-        <CardContent>
-          <ForgotPasswordForm />
+        <CardContent className="mb-3 space-y-3 leading-relaxed">
+          <p>
+            We have sent you an email with a link to reset your password. Please
+            check your inbox (and your spam folder, just in case) and follow the
+            instructions in the email.
+          </p>
+          <p>
+            If you do not receive the email within a few moments, please check
+            your email address and try again.
+          </p>
+          <p>
+            Reset link will become invalid in{" "}
+            <span className="text-yellow-700">15 minutes</span>.
+          </p>
         </CardContent>
         <CardFooter>
           <div className="text-muted-foreground text-sm">

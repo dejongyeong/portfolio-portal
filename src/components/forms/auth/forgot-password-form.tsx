@@ -3,6 +3,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
 import { Loader2 } from "lucide-react";
+import { useRouter } from "next/navigation";
 import React, { useTransition } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
@@ -27,6 +28,8 @@ import {
 export default function ForgotPasswordForm() {
   const [isPending, startTransition] = useTransition();
 
+  const router = useRouter();
+
   const form = useForm({
     resolver: zodResolver(forgotPasswordSchema),
     defaultValues: {
@@ -45,6 +48,8 @@ export default function ForgotPasswordForm() {
         toast.success(
           "Password reset link has been sent to your email address.",
         );
+
+        router.push("/forgot-password/sent");
       } catch (error: unknown) {
         const message = "Email address not found";
         toast.error(handleError(error, message));

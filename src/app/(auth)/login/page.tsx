@@ -13,7 +13,7 @@ import {
 import { Shell } from "@/components/wrapper/shell";
 import { checkSession } from "@/lib/auth/session";
 
-export default async function Login() {
+export default async function LoginPage() {
   const payload = await checkSession();
 
   // redirect to home page if user is already logged in

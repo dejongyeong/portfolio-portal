@@ -18,7 +18,7 @@ import { cn } from "@/lib/utils";
 import { resetPasswordTokenSearchParamsSchema } from "@/schema/auth/reset-password-schema";
 
 interface IResetPasswordPageProps {
-  searchParams: { [key: string]: string | string[] | undefined };
+  searchParams: Promise<{ [key: string]: string | string[] }>;
 }
 
 export default async function ResetPasswordPage({
