@@ -2,7 +2,7 @@ import Image from "next/image";
 
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 
-export default function AuthLayout({ children }: React.PropsWithChildren) {
+export default function HomeLayout({ children }: React.PropsWithChildren) {
   return (
     <div className="grid min-h-screen grid-cols-1 overflow-hidden md:grid-cols-3 lg:grid-cols-2">
       <AspectRatio ratio={16 / 9}>
