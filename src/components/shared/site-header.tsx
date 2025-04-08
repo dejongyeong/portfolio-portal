@@ -4,6 +4,7 @@ import { SidebarIcon } from "lucide-react";
 
 import { Button } from "../ui/button";
 import { useSidebar } from "../ui/sidebar";
+import { SearchBar } from "./nav/search-bar";
 
 export function SiteHeader() {
   const { toggleSidebar } = useSidebar();
@@ -19,7 +20,7 @@ export function SiteHeader() {
         >
           <SidebarIcon className="size-4" />
         </Button>
-        <div className="w-full sm:ml-auto sm:w-auto">Search Form</div>
+        <SearchBar className="w-full sm:ml-auto sm:w-auto" />
       </div>
     </header>
   );
