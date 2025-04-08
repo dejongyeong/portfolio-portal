@@ -1,73 +1,69 @@
 "use client";
 
 import axios from "axios";
-import { Loader2 } from "lucide-react";
+import { Loader2, LogOut } from "lucide-react";
 import { useRouter } from "next/navigation";
-import React from "react";
-import { useFormStatus } from "react-dom";
+import React, { useTransition } from "react";
+import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 
-import { Button } from "@/components/ui/button";
+import { Form } from "@/components/ui/form";
+import { SidebarMenuButton } from "@/components/ui/sidebar";
 import { getToken } from "@/lib/auth/token";
 import { LOGOUT_URL } from "@/lib/shared/endpoints";
 import { handleError } from "@/lib/shared/handle-error";
 
 export default function LogoutForm() {
+  const form = useForm();
+
   const router = useRouter();
 
-  const handleLogoutAction = async () => {
-    const token = await getToken();
+  const [isPending, startTransition] = useTransition();
 
-    try {
-      await axios.post(LOGOUT_URL, null, {
-        headers: { Authorization: `Bearer ${token}` },
-        withCredentials: true,
-      });
+  function onSubmit() {
+    startTransition(async () => {
+      const token = await getToken();
 
-      toast.success("Logout successful!");
-      router.push("/login");
-    } catch (error: unknown) {
-      const message = "Logout failed. Please try again.";
-      toast.error(handleError(error, message));
-    }
-  };
+      try {
+        await axios.post(LOGOUT_URL, null, {
+          headers: { Authorization: `Bearer ${token}` },
+          withCredentials: true,
+        });
 
-  // try with react 19 useFormStatus
+        toast.success("Logout successful!");
+        router.push("/login");
+      } catch (error: unknown) {
+        const message = "Logout failed. Please try again.";
+        toast.error(handleError(error, message));
+      }
+    });
+  }
+
   return (
-    <React.Fragment>
-      <form action={handleLogoutAction}>
-        <SubmitButton />
+    <Form {...form}>
+      <form onSubmit={(...args) => void form.handleSubmit(onSubmit)(...args)}>
+        <SidebarMenuButton
+          type="submit"
+          disabled={isPending}
+          aria-label="Logout"
+          className="cursor-pointer"
+          tooltip="Logout"
+        >
+          {isPending ? (
+            <React.Fragment>
+              <Loader2 className="size-4 animate-spin" aria-hidden="true" />
+              Logging out...
+              <span className="sr-only">Logging out...</span>
+            </React.Fragment>
+          ) : (
+            <React.Fragment>
+              <LogOut className="size-4" aria-hidden="true" />
+              Logout
+              <span className="sr-only">Logout</span>
+            </React.Fragment>
+          )}
+        </SidebarMenuButton>
       </form>
-    </React.Fragment>
-  );
-}
-
-/**
- * Submit button for the logout form.
- *
- */
-function SubmitButton() {
-  const { pending } = useFormStatus();
-
-  return (
-    <Button
-      type="submit"
-      disabled={pending}
-      aria-label="Logout"
-      className="cursor-pointer"
-    >
-      {pending ? (
-        <React.Fragment>
-          <Loader2 className="mr-1 h-4 w-4 animate-spin" aria-hidden="true" />
-          Logging out...
-          <span className="sr-only">Logging in...</span>
-        </React.Fragment>
-      ) : (
-        <React.Fragment>
-          Logout
-          <span className="sr-only">Logout</span>
-        </React.Fragment>
-      )}
-    </Button>
+    </Form>
   );
 }
