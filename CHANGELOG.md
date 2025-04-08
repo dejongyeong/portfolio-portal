@@ -1,3 +1,12 @@
+# [1.3.0](https://github.com/dejongyeong/portfolio-portal/compare/v1.2.0...v1.3.0) (2025-04-08)
+
+
+### Features
+
+* add sidebar shadcn components ([9995dc7](https://github.com/dejongyeong/portfolio-portal/commit/9995dc700220727620232916dc0d9bce0ca8087d))
+* include app sidebar with a site sticky header ([5e796ee](https://github.com/dejongyeong/portfolio-portal/commit/5e796ee95288d60f7c13fb6118f0fe91985c5911))
+* scaffod project and publication page with active route segments ([41beefb](https://github.com/dejongyeong/portfolio-portal/commit/41beefb7554f643ed4143cd35b8daeeb90f4ee20))
+
 # [1.2.0](https://github.com/dejongyeong/portfolio-portal/compare/v1.1.0...v1.2.0) (2025-04-06)
 
 
