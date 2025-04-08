@@ -1,6 +1,12 @@
 import { BookOpenText, type LucideIcon, PanelsTopLeft } from "lucide-react";
 
-export const navItems = [
+export type TNavItems = {
+  name: string;
+  url: string;
+  icon: LucideIcon;
+}[];
+
+export const navItems: TNavItems = [
   {
     name: "Projects",
     url: "/projects",
@@ -12,9 +18,3 @@ export const navItems = [
     icon: BookOpenText,
   },
 ];
-
-export type TNavItems = {
-  name: string;
-  url: string;
-  icon: LucideIcon;
-}[];
