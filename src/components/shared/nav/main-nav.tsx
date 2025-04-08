@@ -24,7 +24,7 @@ export function MainNav() {
             <SidebarMenuButton
               asChild
               tooltip={item.name}
-              isActive={segments[0] === item.name.toLowerCase()}
+              isActive={segments.includes(item.name.toLowerCase())}
             >
               <Link href={item.url}>
                 <item.icon className="size-4" />
