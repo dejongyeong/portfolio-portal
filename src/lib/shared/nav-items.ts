@@ -3,12 +3,12 @@ import { BookOpenText, type LucideIcon, PanelsTopLeft } from "lucide-react";
 export const navItems = [
   {
     name: "Projects",
-    url: "#",
+    url: "/projects",
     icon: PanelsTopLeft,
   },
   {
     name: "Publications",
-    url: "#",
+    url: "/publications",
     icon: BookOpenText,
   },
 ];

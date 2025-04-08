@@ -32,7 +32,7 @@ export async function middleware(req: NextRequest) {
 
 // protect all routes except the login page
 export const config = {
-  matcher: ["/"],
+  matcher: ["/", "/publications/:path*", "/projects/:path*"],
 };
 
 /**
