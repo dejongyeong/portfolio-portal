@@ -1,3 +1,11 @@
+# [1.4.0](https://github.com/dejongyeong/portfolio-portal/compare/v1.3.0...v1.4.0) (2025-08-24)
+
+
+### Features
+
+* add quick action button for creating project and publication ([c894e4a](https://github.com/dejongyeong/portfolio-portal/commit/c894e4af2aa1a34ab35e62419f60aa8bdd3c9564))
+* add searchbar placeholder to site header ([e286b00](https://github.com/dejongyeong/portfolio-portal/commit/e286b002cf315262dc40592133ffdf65f1efd2c4))
+
 # [1.3.0](https://github.com/dejongyeong/portfolio-portal/compare/v1.2.0...v1.3.0) (2025-04-08)
 
 
