@@ -16,11 +16,13 @@ const bundleAnalyzer = withBundleAnalyzer({
 const nextConfig: NextConfig = {
   /* config options here */
   reactStrictMode: true,
+
   experimental: {
     optimizePackageImports: [],
-    turbo: {
-      rules: { ".svg": ["@svgr/webpack"] },
-    },
+  },
+
+  turbopack: {
+    rules: { ".svg": ["@svgr/webpack"] },
   },
 };
 

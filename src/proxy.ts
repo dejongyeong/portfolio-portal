@@ -5,7 +5,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { REFRESH_TOKEN_URL } from "./lib/shared/endpoints";
 import { handleError } from "./lib/shared/handle-error";
 
-export async function middleware(req: NextRequest) {
+export async function proxy(req: NextRequest) {
   const token = req.cookies.get("access_token")?.value;
 
   // check if the token is present in the cookies, if not, try to refresh the token
